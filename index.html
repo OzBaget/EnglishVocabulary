@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>תרגול אוצר מילים באנגלית</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="header">
+    <h1>תרגול אוצר מילים באנגלית</h1>
+  </div>
+  <div class="container">
+    <p>
+      בחרו רמת אנגלית להתאמן בה. בכל רמה תמצאו כרטיסיות עם מילים. לחצו על
+      הכרטיסיה כדי להפוך אותה ולראות את הפירוש והתרגום. החלק ימינה (ירוק)
+      אם ידעתם את המילה, החלק למטה (כתום) אם ידעתם חלקית, או החלק שמאלה
+      (אדום) אם לא ידעתם. כרטיסיות שידעתם לא יופיעו שוב. כאשר תלמדו את כל
+      המילים ברמה תוכלו לעבור לרמה הבאה.
+    </p>
+    <div class="level-list">
+      <div class="level-item" data-level="1">
+        <div class="info">
+          <h2>רמה 1</h2>
+          <span class="progress-text"></span>
+          <progress value="0" max="10"></progress>
+        </div>
+        <div>
+          <a href="level.html?level=1" class="button">תרגל</a>
+          <button class="reset-button" data-level="1">אפס</button>
+        </div>
+      </div>
+      <div class="level-item" data-level="2">
+        <div class="info">
+          <h2>רמה 2</h2>
+          <span class="progress-text"></span>
+          <progress value="0" max="10"></progress>
+        </div>
+        <div>
+          <a href="level.html?level=2" class="button">תרגל</a>
+          <button class="reset-button" data-level="2">אפס</button>
+        </div>
+      </div>
+      <div class="level-item" data-level="3">
+        <div class="info">
+          <h2>רמה 3</h2>
+          <span class="progress-text"></span>
+          <progress value="0" max="10"></progress>
+        </div>
+        <div>
+          <a href="level.html?level=3" class="button">תרגל</a>
+          <button class="reset-button" data-level="3">אפס</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
