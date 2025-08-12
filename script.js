@@ -10,40 +10,40 @@
 // trusted dictionary sources. See project documentation for citations.
 const levels = {
   "1": [
-    { word: "anticipate", translation: "לצפות (לחזות מראש)", definition: "to imagine or expect that something will happen" },
-    { word: "approximate", translation: "משוער, בקירוב", definition: "not completely accurate but close" },
-    { word: "coherent", translation: "עקבי, קוהרנטי", definition: "clear and carefully considered, each part connecting naturally" },
-    { word: "compile", translation: "לקבץ, לאסוף ולסדר", definition: "to collect information from different places and arrange it" },
-    { word: "denote", translation: "לציין, לסמל", definition: "to represent or mean something" },
-    { word: "discrete", translation: "נפרד, מבודל", definition: "clearly separate or different in shape or form" },
-    { word: "fluctuate", translation: "להתנדנד, להשתנות", definition: "to change continuously between one level or thing and another" },
-    { word: "forthcoming", translation: "קרוב, מתקרב", definition: "happening soon" },
-    { word: "incentive", translation: "תמריץ", definition: "something that encourages a person to do something by offering a reward" },
-    { word: "inherent", translation: "טבוע, מובנה", definition: "existing as a natural or basic part of something" }
+    { word: "anticipate", translation: "לצפות (לחזות מראש)", definition: "to imagine or expect that something will happen", pos: "verb" },
+    { word: "approximate", translation: "משוער, בקירוב", definition: "not completely accurate but close", pos: "adj" },
+    { word: "coherent", translation: "עקבי, קוהרנטי", definition: "clear and carefully considered, each part connecting naturally", pos: "adj" },
+    { word: "compile", translation: "לקבץ, לאסוף ולסדר", definition: "to collect information from different places and arrange it", pos: "verb" },
+    { word: "denote", translation: "לציין, לסמל", definition: "to represent or mean something", pos: "verb" },
+    { word: "discrete", translation: "נפרד, מבודל", definition: "clearly separate or different in shape or form", pos: "adj" },
+    { word: "fluctuate", translation: "להתנדנד, להשתנות", definition: "to change continuously between one level or thing and another", pos: "verb" },
+    { word: "forthcoming", translation: "קרוב, מתקרב", definition: "happening soon", pos: "adj" },
+    { word: "incentive", translation: "תמריץ", definition: "something that encourages a person to do something by offering a reward", pos: "noun" },
+    { word: "inherent", translation: "טבוע, מובנה", definition: "existing as a natural or basic part of something", pos: "adj" }
   ],
   "2": [
-    { word: "radical", translation: "רדיקלי (תומך בשינוי גדול)", definition: "believing or expressing that there should be great social or political change" },
-    { word: "reluctance", translation: "חוסר רצון, היסוס", definition: "an unwillingness to do something" },
-    { word: "subordinate", translation: "כפוף, בדרגה נמוכה", definition: "having a lower or less important position" },
-    { word: "supplement", translation: "תוספת", definition: "something added to improve or complete something" },
-    { word: "comprehensive", translation: "מקיף, כולל", definition: "complete and including everything necessary" },
-    { word: "controversy", translation: "מחלוקת", definition: "a lot of disagreement or argument about something" },
-    { word: "deduce", translation: "להסיק", definition: "to reach an answer by thinking carefully about known facts" },
-    { word: "empirical", translation: "אמפירי", definition: "based on experience or scientific experiments and not only on ideas" },
-    { word: "explicit", translation: "מפורש", definition: "clear and exact; showing or talking about sex or violence in detail" },
-    { word: "paradigm", translation: "פרדיגמה, מודל", definition: "a typical example or model of something" }
+    { word: "radical", translation: "רדיקלי (תומך בשינוי גדול)", definition: "believing or expressing that there should be great social or political change", pos: "adj" },
+    { word: "reluctance", translation: "חוסר רצון, היסוס", definition: "an unwillingness to do something", pos: "noun" },
+    { word: "subordinate", translation: "כפוף, בדרגה נמוכה", definition: "having a lower or less important position", pos: "adj" },
+    { word: "supplement", translation: "תוספת", definition: "something added to improve or complete something", pos: "noun" },
+    { word: "comprehensive", translation: "מקיף, כולל", definition: "complete and including everything necessary", pos: "adj" },
+    { word: "controversy", translation: "מחלוקת", definition: "a lot of disagreement or argument about something", pos: "noun" },
+    { word: "deduce", translation: "להסיק", definition: "to reach an answer by thinking carefully about known facts", pos: "verb" },
+    { word: "empirical", translation: "אמפירי", definition: "based on experience or scientific experiments and not only on ideas", pos: "adj" },
+    { word: "explicit", translation: "מפורש", definition: "clear and exact; showing or talking about sex or violence in detail", pos: "adj" },
+    { word: "paradigm", translation: "פרדיגמה, מודל", definition: "a typical example or model of something", pos: "noun" }
   ],
   "3": [
-    { word: "ambivalent", translation: "דו‑ערכי, אמביוולנטי", definition: "having two different feelings about something" },
-    { word: "juxtapose", translation: "להציב זה לצד זה", definition: "to place very different things or people close to each other" },
-    { word: "fastidious", translation: "דקדקן, קפדן", definition: "wanting every detail of something to be correct and perfect" },
-    { word: "magnanimous", translation: "נדיב, רחב לב", definition: "very kind and generous towards an enemy or someone you have defeated" },
-    { word: "pernicious", translation: "מזיק מאוד, הרסני", definition: "very harmful" },
-    { word: "prosaic", translation: "שגרתי, חסר עניין", definition: "ordinary and not interesting" },
-    { word: "sagacious", translation: "נבון, פיקח", definition: "having or showing understanding and the ability to make good decisions and judgments" },
-    { word: "tantamount", translation: "שקול ל-, שווה ערך", definition: "being almost the same or having the same effect as something, usually something bad" },
-    { word: "clandestine", translation: "חשאי, סודי", definition: "secret and often illegal" },
-    { word: "ubiquitous", translation: "נמצא בכל מקום", definition: "seeming to be in all places" }
+    { word: "ambivalent", translation: "דו‑ערכי, אמביוולנטי", definition: "having two different feelings about something", pos: "adj" },
+    { word: "juxtapose", translation: "להציב זה לצד זה", definition: "to place very different things or people close to each other", pos: "verb" },
+    { word: "fastidious", translation: "דקדקן, קפדן", definition: "wanting every detail of something to be correct and perfect", pos: "adj" },
+    { word: "magnanimous", translation: "נדיב, רחב לב", definition: "very kind and generous towards an enemy or someone you have defeated", pos: "adj" },
+    { word: "pernicious", translation: "מזיק מאוד, הרסני", definition: "very harmful", pos: "adj" },
+    { word: "prosaic", translation: "שגרתי, חסר עניין", definition: "ordinary and not interesting", pos: "adj" },
+    { word: "sagacious", translation: "נבון, פיקח", definition: "having or showing understanding and the ability to make good decisions and judgments", pos: "adj" },
+    { word: "tantamount", translation: "שקול ל-, שווה ערך", definition: "being almost the same or having the same effect as something, usually something bad", pos: "adj" },
+    { word: "clandestine", translation: "חשאי, סודי", definition: "secret and often illegal", pos: "adj" },
+    { word: "ubiquitous", translation: "נמצא בכל מקום", definition: "seeming to be in all places", pos: "adj" }
   ]
 };
 
@@ -222,6 +222,34 @@ function initLevel(level) {
     const front = document.createElement("div");
     front.className = "front";
     front.textContent = item.word;
+    // Add part-of-speech tag on the front side (Hebrew labels)
+    const posTag = document.createElement("span");
+    posTag.className = `pos-tag pos-${item.pos}`;
+    // Display Hebrew term for part of speech
+    let posLabel = "";
+    if (item.pos === "noun") posLabel = "שם עצם";
+    else if (item.pos === "verb") posLabel = "פועל";
+    else if (item.pos === "adj") posLabel = "תואר";
+    else posLabel = item.pos;
+    posTag.textContent = posLabel;
+    front.appendChild(posTag);
+    // הוספת כפתור אודיו להצגת הגיית המילה.
+    // משתמש בלחצן עם אייקון רמקול ומנגן את המילה באמצעות speechSynthesis.
+    const audioBtn = document.createElement("button");
+    audioBtn.className = "audio-button";
+    audioBtn.setAttribute("title", "האזן להגיית המילה");
+    audioBtn.textContent = "🔊";
+    audioBtn.addEventListener("click", e => {
+      // מניעת החלת ההפיכה או החלקה בעת לחיצה על כפתור האודיו
+      e.stopPropagation();
+      if (window.speechSynthesis) {
+        const utterance = new SpeechSynthesisUtterance(item.word);
+        utterance.lang = "en-US";
+        speechSynthesis.speak(utterance);
+      }
+    });
+    // הוספת הכפתור לחזית הכרטיס
+    front.appendChild(audioBtn);
 
     const back = document.createElement("div");
     back.className = "back";
