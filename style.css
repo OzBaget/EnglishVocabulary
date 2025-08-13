@@ -1,0 +1,147 @@
+
+:root{
+  --font-sans: "Inter", system-ui, -apple-system, Arial, sans-serif;
+  --bg: #0b1026;
+  --text: #e6ecff;
+  --muted: #94a3b8;
+  --accent: #7c3aed; /* neon violet */
+  --accent-2: #00d1ff; /* cyber cyan */
+  --accent-3: #f59e0b; /* amber */
+  --card: #121737;
+  --card-2: #0e142f;
+  --chip-noun:#4caf50; --chip-verb:#3b82f6; --chip-adj:#ef4444;
+  --good:#22c55e; --partial:#f59e0b; --bad:#ef4444;
+}
+
+/* Light theme */
+body.theme-light{
+  --bg:#f8fafc; --text:#0b1026; --muted:#475569;
+  --card:#ffffff; --card-2:#f1f5f9;
+}
+
+/* Code theme (VSCode-like) */
+body.theme-code{
+  --bg:#1e1e1e; --text:#d4d4d4; --muted:#9aa0a6;
+  --accent:#569cd6; --accent-2:#c586c0; --accent-3:#ce9178;
+  --card:#252526; --card-2:#1a1a1a;
+}
+
+/* Abstract theme – animated gradient background */
+body.theme-abstract{
+  --bg: transparent;
+  --text:#ffffff;
+  --card: rgba(255,255,255,0.1);
+  --card-2: rgba(255,255,255,0.08);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; color:var(--text);
+  font-family:var(--font-sans);
+  background: var(--bg);
+  overflow-x:hidden;
+}
+/* Abstract animated background */
+body.theme-abstract::before{
+  content:""; position:fixed; inset:-20%;
+  background: radial-gradient(60% 60% at 20% 20%, #7c3aed55, transparent 60%),
+              radial-gradient(50% 50% at 80% 30%, #00d1ff55, transparent 60%),
+              radial-gradient(60% 60% at 50% 80%, #f59e0b55, transparent 60%);
+  filter: blur(50px);
+  animation: blob 16s ease-in-out infinite alternate;
+  z-index:-1;
+}
+@keyframes blob{
+  0%{transform: translate(0,0) scale(1)}
+  50%{transform: translate(-5%,2%) scale(1.05)}
+  100%{transform: translate(5%,-3%) scale(1.03)}
+}
+
+.header{
+  position:sticky; top:0; z-index:5;
+  background: linear-gradient(90deg, var(--card-2), transparent);
+  border-bottom: 1px solid #ffffff22;
+  padding:16px 20px; display:flex; gap:16px; align-items:center; justify-content:space-between;
+}
+.brand{font-weight:800; letter-spacing:.5px}
+.actions{display:flex; gap:10px; align-items:center}
+.select, .button{
+  background:linear-gradient(90deg, var(--accent), var(--accent-2));
+  color:white; border:none; padding:10px 14px; border-radius:10px; cursor:pointer;
+  font-weight:600;
+  box-shadow:0 8px 30px #00000033;
+  transition: transform .12s ease, box-shadow .2s ease;
+}
+.button.ghost{background:transparent; color:var(--text); border:1px solid #ffffff33}
+.select:hover, .button:hover{transform: translateY(-1px); box-shadow:0 12px 26px #00000044}
+.select:active, .button:active{transform: translateY(0) scale(.98)}
+
+/* Levels grid */
+.container{max-width:1100px; margin:auto; padding:24px}
+.grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:16px}
+.level{
+  background: var(--card);
+  border:1px solid #ffffff22;
+  border-radius:16px; padding:16px;
+  box-shadow:0 10px 30px #00000040;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.level:hover{transform: translateY(-3px); box-shadow:0 16px 40px #00000050}
+.level h3{margin:0 0 6px 0}
+.progress{height:8px; background:#ffffff14; border-radius:999px; overflow:hidden; margin-top:8px}
+.progress > span{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--accent),var(--accent-2)); transition:width .4s ease}
+
+/* Practice page */
+.stage{max-width:1000px; margin:30px auto; padding:0 16px}
+.instructions{color:var(--muted); margin:8px 0 16px}
+.card-wrap{display:grid; place-items:center; height:55vh; perspective:1200px}
+.card{
+  position:relative; width:680px; max-width:90vw; height:360px;
+  transform-style:preserve-3d; transition: transform .6s cubic-bezier(.2,.7,.2,1);
+  border-radius:18px; background: var(--card); border:1px solid #ffffff22;
+  box-shadow:0 20px 60px #00000066; user-select:none; -webkit-user-select:none;
+}
+.card.is-flipped{transform: rotateY(180deg)}
+.card .face{
+  position:absolute; inset:0; backface-visibility:hidden; padding:28px;
+  display:flex; flex-direction:column; gap:16px; justify-content:center;
+}
+.card .back{transform: rotateY(180deg)}
+.word{font-size:44px; font-weight:800; letter-spacing:.5px}
+.pos-chip{display:inline-flex; align-items:center; gap:6px; padding:4px 10px; font-weight:700; border-radius:999px; color:white}
+.pos-noun{background:var(--chip-noun)} .pos-verb{background:var(--chip-verb)} .pos-adj{background:var(--chip-adj)}
+.meaning{font-size:18px; opacity:.95}
+.actions-row{display:flex; gap:10px; align-items:center}
+.audio{width:44px; height:44px; border-radius:50%; display:grid; place-items:center; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:white; cursor:pointer}
+.audio.playing{animation:pulse 1s ease-in-out infinite}
+@keyframes pulse{
+  0%{filter:drop-shadow(0 0 0 #00d1ff00); transform:scale(1)}
+  50%{filter:drop-shadow(0 0 18px #00d1ff); transform:scale(1.05)}
+  100%{filter:drop-shadow(0 0 0 #00d1ff00); transform:scale(1)}
+}
+
+/* Swipe feedback overlays */
+.status{
+  position:absolute; inset:0; border-radius:18px; pointer-events:none; opacity:0;
+}
+.status.show{animation: pop .35s ease forwards}
+.status.good{background:linear-gradient(180deg, #22c55e33, transparent)}
+.status.partial{background:linear-gradient(180deg, #f59e0b33, transparent)}
+.status.bad{background:linear-gradient(180deg, #ef444433, transparent)}
+@keyframes pop{from{opacity:0; transform:scale(.98)} to{opacity:1; transform:scale(1)}}
+
+/* Drag tilt */
+.card.dragging{transition:none}
+.card.dragging .face{pointer-events:none}
+.card.dragging{box-shadow:0 30px 80px #00000080}
+
+/* Swipe exit animations */
+@keyframes swipeRight{to{transform: translateX(110%) rotate(8deg); opacity:0}}
+@keyframes swipeLeft{to{transform: translateX(-110%) rotate(-8deg); opacity:0}}
+@keyframes swipeDown{to{transform: translateY(110%) rotate(0); opacity:0}}
+
+.hints{display:flex; justify-content:space-between; gap:8px; margin-top:10px; color:var(--muted)}
+.hints .chip{padding:6px 10px; border-radius:8px; background: var(--card-2); border:1px solid #ffffff22}
+
+.footer{opacity:.7; padding:20px; text-align:center; color:var(--muted)}

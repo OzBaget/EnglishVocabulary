@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>English Vocab – תרגול אוצר מילים</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="theme-abstract">
+  <header class="header">
+    <div class="brand">⚡ VocabTrainer</div>
+    <div class="actions">
+      <select id="theme" class="select">
+        <option value="theme-abstract">Abstract</option>
+        <option value="theme-dark">Dark</option>
+        <option value="theme-light">Light</option>
+        <option value="theme-code">Code</option>
+      </select>
+      <a class="button ghost" href="qa.html">QA</a>
+      <a class="button" href="level.html?level=1">התחל רמה 1</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>בחרו רמה ויאללה – מתקדמים</h1>
+    <p class="instructions">
+      כרטיסיות עם החלקה אמיתית: ימינה = <b>ידעתי</b>, למטה = <b>חלקי</b>, שמאלה = <b>לא ידעתי</b>.
+      לחיצה קצרה הופכת את הכרטיס (Flip). כפתור הרמקול מנגן הגייה. כל ההתקדמות נשמרת.
+    </p>
+    <div id="levels" class="grid"></div>
+  </main>
+
+  <footer class="footer">Built for Technion practice • Theme & progress saved</footer>
+  <script src="script.js"></script>
+  <script>initIndex();</script>
+</body>
+</html>

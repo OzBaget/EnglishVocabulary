@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>רמת תרגול</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="theme-abstract">
+  <header class="header">
+    <div class="brand">⚡ VocabTrainer</div>
+    <div class="actions">
+      <a class="button ghost" href="index.html">דף הבית</a>
+      <button id="reset" class="button ghost">איפוס רמה</button>
+    </div>
+  </header>
+
+  <main class="stage">
+    <h2 id="title">רמה</h2>
+    <p class="instructions">החלקו ימינה/למטה/שמאלה לפי הידע שלכם. לחיצה קצרה הופכת את הכרטיס.</p>
+    <div class="card-wrap">
+      <div id="card" class="card" tabindex="0">
+        <div class="status" id="status"></div>
+        <div class="face front">
+          <div class="word" id="word">…</div>
+          <div class="pos-chip" id="pos">pos</div>
+          <div class="actions-row">
+            <div id="audioBtn" class="audio">▶</div>
+          </div>
+        </div>
+        <div class="face back">
+          <div class="meaning" id="definition"></div>
+          <div class="meaning" id="translation"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hints">
+      <div class="chip">← לא ידעתי</div>
+      <div class="chip">↓ חלקית</div>
+      <div class="chip">ידוע →</div>
+    </div>
+    <div class="progress"><span id="bar"></span></div>
+  </main>
+
+  <footer class="footer">Swipe + Flip • Audio • POS Tags</footer>
+  <script src="script.js"></script>
+  <script>initLevelFromQuery();</script>
+</body>
+</html>

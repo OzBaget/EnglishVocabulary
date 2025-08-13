@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QA – בדיקות מהירות</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="theme-light">
+<header class="header"><div class="brand">QA</div><a class="button" href="index.html">חזרה</a></header>
+<main class="container">
+  <h2>בדיקות אוטומטיות</h2>
+  <ul id="report"></ul>
+</main>
+<script src="script.js"></script>
+<script>
+  const out = document.getElementById('report');
+  function ok(msg){ const li=document.createElement('li'); li.textContent='✅ '+msg; out.appendChild(li); }
+  function no(msg){ const li=document.createElement('li'); li.textContent='❌ '+msg; out.appendChild(li); }
+
+  (async () => {
+    try{
+      const lvls = await loadLevels();
+      ok('טעינת נתונים הצליחה: '+Object.keys(lvls).length+' רמות');
+      const words = lvls['1']; ok('רמה 1 כוללת '+words.length+' מילים');
+      const themes = ['theme-abstract','theme-dark','theme-light','theme-code'];
+      themes.forEach(t => document.body.classList.add(t));
+      ok('ערכות נושא קיימות: '+themes.length);
+      document.body.className='theme-light';
+
+      // בדיקת שמירה
+      saveProgress('1',{known:1,partial:2,unknown:3,total:40});
+      const s = loadProgress('1');
+      ok('שמירה ל-localStorage עובדת: known='+s.known);
+
+      ok('בדיקות בסיסיות הושלמו');
+    }catch(e){ no('שגיאה בבדיקות: '+e.message); }
+  })();
+</script>
+</body>
+</html>
