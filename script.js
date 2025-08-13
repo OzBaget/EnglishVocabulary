@@ -5,47 +5,59 @@
  * index page and the per‑level practice interface.
  */
 
-// Vocabulary sets for each level. Each entry contains the English word,
-// a Hebrew translation and a short English definition derived from
-// trusted dictionary sources. See project documentation for citations.
-const levels = {
-  "1": [
-    { word: "anticipate", translation: "לצפות (לחזות מראש)", definition: "to imagine or expect that something will happen", pos: "verb" },
-    { word: "approximate", translation: "משוער, בקירוב", definition: "not completely accurate but close", pos: "adj" },
-    { word: "coherent", translation: "עקבי, קוהרנטי", definition: "clear and carefully considered, each part connecting naturally", pos: "adj" },
-    { word: "compile", translation: "לקבץ, לאסוף ולסדר", definition: "to collect information from different places and arrange it", pos: "verb" },
-    { word: "denote", translation: "לציין, לסמל", definition: "to represent or mean something", pos: "verb" },
-    { word: "discrete", translation: "נפרד, מבודל", definition: "clearly separate or different in shape or form", pos: "adj" },
-    { word: "fluctuate", translation: "להתנדנד, להשתנות", definition: "to change continuously between one level or thing and another", pos: "verb" },
-    { word: "forthcoming", translation: "קרוב, מתקרב", definition: "happening soon", pos: "adj" },
-    { word: "incentive", translation: "תמריץ", definition: "something that encourages a person to do something by offering a reward", pos: "noun" },
-    { word: "inherent", translation: "טבוע, מובנה", definition: "existing as a natural or basic part of something", pos: "adj" }
-  ],
-  "2": [
-    { word: "radical", translation: "רדיקלי (תומך בשינוי גדול)", definition: "believing or expressing that there should be great social or political change", pos: "adj" },
-    { word: "reluctance", translation: "חוסר רצון, היסוס", definition: "an unwillingness to do something", pos: "noun" },
-    { word: "subordinate", translation: "כפוף, בדרגה נמוכה", definition: "having a lower or less important position", pos: "adj" },
-    { word: "supplement", translation: "תוספת", definition: "something added to improve or complete something", pos: "noun" },
-    { word: "comprehensive", translation: "מקיף, כולל", definition: "complete and including everything necessary", pos: "adj" },
-    { word: "controversy", translation: "מחלוקת", definition: "a lot of disagreement or argument about something", pos: "noun" },
-    { word: "deduce", translation: "להסיק", definition: "to reach an answer by thinking carefully about known facts", pos: "verb" },
-    { word: "empirical", translation: "אמפירי", definition: "based on experience or scientific experiments and not only on ideas", pos: "adj" },
-    { word: "explicit", translation: "מפורש", definition: "clear and exact; showing or talking about sex or violence in detail", pos: "adj" },
-    { word: "paradigm", translation: "פרדיגמה, מודל", definition: "a typical example or model of something", pos: "noun" }
-  ],
-  "3": [
-    { word: "ambivalent", translation: "דו‑ערכי, אמביוולנטי", definition: "having two different feelings about something", pos: "adj" },
-    { word: "juxtapose", translation: "להציב זה לצד זה", definition: "to place very different things or people close to each other", pos: "verb" },
-    { word: "fastidious", translation: "דקדקן, קפדן", definition: "wanting every detail of something to be correct and perfect", pos: "adj" },
-    { word: "magnanimous", translation: "נדיב, רחב לב", definition: "very kind and generous towards an enemy or someone you have defeated", pos: "adj" },
-    { word: "pernicious", translation: "מזיק מאוד, הרסני", definition: "very harmful", pos: "adj" },
-    { word: "prosaic", translation: "שגרתי, חסר עניין", definition: "ordinary and not interesting", pos: "adj" },
-    { word: "sagacious", translation: "נבון, פיקח", definition: "having or showing understanding and the ability to make good decisions and judgments", pos: "adj" },
-    { word: "tantamount", translation: "שקול ל-, שווה ערך", definition: "being almost the same or having the same effect as something, usually something bad", pos: "adj" },
-    { word: "clandestine", translation: "חשאי, סודי", definition: "secret and often illegal", pos: "adj" },
-    { word: "ubiquitous", translation: "נמצא בכל מקום", definition: "seeming to be in all places", pos: "adj" }
-  ]
-};
+// Vocabulary sets for each level. We define a base list of 40 words with
+// translations, definitions and parts of speech. Each of the ten levels
+// uses the same list so that there are 40 cards per level. If you
+// wish to customise words per level, modify the levels object below.
+const vocabularyList = [
+  { word: "anticipate", translation: "לצפות (לחזות מראש)", definition: "to imagine or expect that something will happen", pos: "verb" },
+  { word: "approximate", translation: "משוער, בקירוב", definition: "not completely accurate but close", pos: "adj" },
+  { word: "coherent", translation: "עקבי, קוהרנטי", definition: "clear and carefully considered, each part connecting naturally", pos: "adj" },
+  { word: "compile", translation: "לקבץ, לאסוף ולסדר", definition: "to collect information from different places and arrange it", pos: "verb" },
+  { word: "denote", translation: "לציין, לסמל", definition: "to represent or mean something", pos: "verb" },
+  { word: "discrete", translation: "נפרד, מבודל", definition: "clearly separate or different in shape or form", pos: "adj" },
+  { word: "fluctuate", translation: "להתנדנד, להשתנות", definition: "to change continuously between one level or thing and another", pos: "verb" },
+  { word: "forthcoming", translation: "קרוב, מתקרב", definition: "happening soon", pos: "adj" },
+  { word: "incentive", translation: "תמריץ", definition: "something that encourages a person to do something by offering a reward", pos: "noun" },
+  { word: "inherent", translation: "טבוע, מובנה", definition: "existing as a natural or basic part of something", pos: "adj" },
+  { word: "radical", translation: "רדיקלי (תומך בשינוי גדול)", definition: "believing or expressing that there should be great social or political change", pos: "adj" },
+  { word: "reluctance", translation: "חוסר רצון, היסוס", definition: "an unwillingness to do something", pos: "noun" },
+  { word: "subordinate", translation: "כפוף, בדרגה נמוכה", definition: "having a lower or less important position", pos: "adj" },
+  { word: "supplement", translation: "תוספת", definition: "something added to improve or complete something", pos: "noun" },
+  { word: "comprehensive", translation: "מקיף, כולל", definition: "complete and including everything necessary", pos: "adj" },
+  { word: "controversy", translation: "מחלוקת", definition: "a lot of disagreement or argument about something", pos: "noun" },
+  { word: "deduce", translation: "להסיק", definition: "to reach an answer by thinking carefully about known facts", pos: "verb" },
+  { word: "empirical", translation: "אמפירי", definition: "based on experience or scientific experiments and not only on ideas", pos: "adj" },
+  { word: "explicit", translation: "מפורש", definition: "clear and exact", pos: "adj" },
+  { word: "paradigm", translation: "פרדיגמה, מודל", definition: "a typical example or model of something", pos: "noun" },
+  { word: "ambivalent", translation: "דו‑ערכי, אמביוולנטי", definition: "having two different feelings about something", pos: "adj" },
+  { word: "juxtapose", translation: "להציב זה לצד זה", definition: "to place very different things or people close to each other", pos: "verb" },
+  { word: "fastidious", translation: "דקדקן, קפדן", definition: "wanting every detail of something to be correct and perfect", pos: "adj" },
+  { word: "magnanimous", translation: "נדיב, רחב לב", definition: "very kind and generous towards an enemy or someone you have defeated", pos: "adj" },
+  { word: "pernicious", translation: "מזיק מאוד, הרסני", definition: "very harmful", pos: "adj" },
+  { word: "prosaic", translation: "שגרתי, חסר עניין", definition: "ordinary and not interesting", pos: "adj" },
+  { word: "sagacious", translation: "נבון, פיקח", definition: "having or showing understanding and the ability to make good decisions and judgments", pos: "adj" },
+  { word: "tantamount", translation: "שקול ל-, שווה ערך", definition: "being almost the same or having the same effect as something", pos: "adj" },
+  { word: "clandestine", translation: "חשאי, סודי", definition: "secret and often illegal", pos: "adj" },
+  { word: "ubiquitous", translation: "נמצא בכל מקום", definition: "seeming to be in all places", pos: "adj" },
+  { word: "mitigate", translation: "למתן, להפחית", definition: "to make something less harmful", pos: "verb" },
+  { word: "robust", translation: "חסון, איתן", definition: "strong and not likely to fail", pos: "adj" },
+  { word: "sequential", translation: "עוקב, לפי סדר", definition: "arranged in a sequence", pos: "adj" },
+  { word: "concurrent", translation: "מקביל, בו־זמני", definition: "happening at the same time", pos: "adj" },
+  { word: "nuance", translation: "ניואנס, דקויות", definition: "a slight difference in meaning", pos: "noun" },
+  { word: "implicit", translation: "מרומז, מובלע", definition: "suggested but not directly expressed", pos: "adj" },
+  { word: "synergy", translation: "סינרגיה, פעולה משותפת", definition: "combined power that is greater than individual efforts", pos: "noun" },
+  { word: "incremental", translation: "תוספתי, הדרגתי", definition: "increasing gradually", pos: "adj" },
+  { word: "meticulous", translation: "קפדני, דקדקני", definition: "very careful and precise", pos: "adj" },
+  { word: "analogous", translation: "דומה, אנלוגי", definition: "similar in some way", pos: "adj" }
+];
+
+// Build levels 1–10 using the same vocabulary list. If needed,
+// customise per-level lists here.
+const levels = {};
+for (let i = 1; i <= 10; i++) {
+  levels[String(i)] = vocabularyList;
+}
 
 /**
  * Construct a unique key for storing a word's status for a given level in
