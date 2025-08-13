@@ -1,19 +1,109 @@
+/*
+ * Theme variables. The :root defines the default (light) palette. Each theme class on the
+ * <body> element overrides these variables to achieve a different look. Colors are
+ * chosen based on research into readability and contrast【400505347909664†screenshot】. Feel free to add more themes.
+ */
+:root {
+  --font-family: "Arial", sans-serif;
+  --bg-color: #f3f6fa;
+  --text-color: #333333;
+  --header-bg: #283593;
+  --header-text: #ffffff;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+  --button-bg: #3f51b5;
+  --button-hover-bg: #283593;
+  --button-text: #ffffff;
+  --reset-bg: #f44336;
+  --reset-hover-bg: #d32f2f;
+  --known-bg: #4caf50;
+  --half-bg: #ff9800;
+  --unknown-bg: #f44336;
+  --audio-color: #283593;
+  --audio-hover-color: #1a237e;
+}
+
+/* Dark theme for users who prefer low‑light environments. Inspired by
+ * modern dark UIs: high contrast text on dark backgrounds, desaturated card
+ * backgrounds and vivid accent colors. */
+.theme-dark {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --header-bg: #1f1b2e;
+  --header-text: #ffffff;
+  --card-bg: #1e1e1e;
+  --border-color: #2a2a2a;
+  --button-bg: #3949ab;
+  --button-hover-bg: #283593;
+  --button-text: #ffffff;
+  --reset-bg: #d32f2f;
+  --reset-hover-bg: #b71c1c;
+  --known-bg: #66bb6a;
+  --half-bg: #ffa726;
+  --unknown-bg: #ef5350;
+  --audio-color: #7986cb;
+  --audio-hover-color: #5c6bc0;
+}
+
+/* Code theme: a monospace look reminiscent of IDEs. Uses a dark
+ * slate background and muted accent colors. */
+.theme-code {
+  --font-family: "Courier New", monospace;
+  --bg-color: #0d1117;
+  --text-color: #c9d1d9;
+  --header-bg: #161b22;
+  --header-text: #58a6ff;
+  --card-bg: #161b22;
+  --border-color: #30363d;
+  --button-bg: #238636;
+  --button-hover-bg: #2ea043;
+  --button-text: #ffffff;
+  --reset-bg: #da3633;
+  --reset-hover-bg: #cd2c25;
+  --known-bg: #40c463;
+  --half-bg: #e3b341;
+  --unknown-bg: #d73a49;
+  --audio-color: #58a6ff;
+  --audio-hover-color: #79c0ff;
+}
+
+/* Abstract theme: gradient backgrounds and playful colors. Adds a slight
+ * shadow to cards for depth. */
+.theme-abstract {
+  --font-family: "Arial", sans-serif;
+  --bg-color: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  --text-color: #2d2d2d;
+  --header-bg: rgba(255, 255, 255, 0.8);
+  --header-text: #333333;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --border-color: rgba(255, 255, 255, 0.6);
+  --button-bg: #ff7c7c;
+  --button-hover-bg: #ff5252;
+  --button-text: #ffffff;
+  --reset-bg: #f44336;
+  --reset-hover-bg: #d32f2f;
+  --known-bg: #64b5f6;
+  --half-bg: #4db6ac;
+  --unknown-bg: #f06292;
+  --audio-color: #6d4c41;
+  --audio-hover-color: #5d4037;
+}
+
 body {
-  /*
-   * רקע בהיר ורך להפחתת עומס והבהירות הכוללת, יחד עם פונט סן־סריפי
-   * והגדרת כיוון מימין לשמאל. הצבע הכהה של הטקסט מספק ניגודיות בריאה.
-   */
-  font-family: Arial, sans-serif;
+  font-family: var(--font-family);
   margin: 0;
   padding: 0;
-  background-color: #f3f6fa;
-  color: #333;
+  background: var(--bg-color);
+  color: var(--text-color);
   direction: rtl;
+  user-select: none;
+  /* Smooth transitions when switching themes */
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Header bar */
 .header {
-  /* גוון כחול עמוק יותר שמשרה יציבות וממוקד בטקסט */
+  /* גון כחול עימוק יותר יציבות וממוקד בטקסט */
   background-color: #283593;
   color: #ffffff;
   padding: 1rem;
@@ -85,14 +175,14 @@ body {
   font-size: 0.9rem;
   cursor: pointer;
   margin-left: 0.5rem;
-  /* שינוי צבע חלק וחלקת אי־אטת מאסות */
+  /* שינוי צבע חלק וחלקת אי‑אטת מאסות */
   transition: background-color 0.2s, opacity 0.2s;
 }
 
 .reset-button {
   background-color: #f44336;
 }
-/* שינוי צבע בעת ריחוף: לכפתור רגיל - כחול עמוק יותר; לכפתור איפוס - אדום כהה יותר */
+/* שינוי צבע בעת ריחוף: לכפתור רגיל - כחול עמוק יותר; לכפתור איפוס - אדום כהה יוסף יותר */
 .button:hover {
   background-color: #283593;
   opacity: 0.95;
@@ -209,9 +299,9 @@ body {
 
 /*
  * כפתור השמעת אודיו עבור כל מילה.
- * ממוקם בפינה העליונה של הכרטיס. מאפשר ללחוץ להשמעת הגיית המילה
+ * ממוקם בפינה העליונה של הכרטיס. מאפשר ללחץ להשמעת גיצית הגייה המילה
  * מבלי להפוך את הכרטיס. שימוש בסמל Unicode של רמקול כדי לחסוך
- * בספריות אייקונים. הכפתור שקוף ברקע וגדל מעט בריחוף.
+ * בספריות איקונים. הכפתור שקופה ברקע וגדל מעט בריחוף.
  */
 .audio-button {
   position: absolute;
